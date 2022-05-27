@@ -10,26 +10,26 @@ from .models import Profile
 def dashboard(request):
     return render(request, 'account/dashboard.html', {"section": "dashboard"})
 
-def user_login(request):
-    if request.method == 'POST':
-        form = LoginForm(request.POST)
-        if form.is_valid():
-            cd = form.cleaned_data
-            user = authenticate(request,
-                                username=cd['username'],
-                                password=cd['password'] )
-            if user is not None:
-                if user.is_active:
-                    login(request, user)
-                    return HttpResponse('Authenticated '\
-                                        'successfully')
-                else:
-                    return HttpResponse('Disabled account')
-            else:
-                return HttpResponse('Invalid login')
-    else:
-        form = LoginForm()
-    return render(request, 'account/login.html', {'form': form})
+# def user_login(request):
+#     if request.method == 'POST':
+#         form = LoginForm(request.POST)
+#         if form.is_valid():
+#             cd = form.cleaned_data
+#             user = authenticate(request,
+#                                 username=cd['username'],
+#                                 password=cd['password'] )
+#             if user is not None:
+#                 if user.is_active:
+#                     login(request, user)
+#                     return HttpResponse('Authenticated '\
+#                                         'successfully')
+#                 else:
+#                     return HttpResponse('Disabled account')
+#             else:
+#                 return HttpResponse('Invalid login')
+#     else:
+#         form = LoginForm()
+#     return render(request, 'account/login.html', {'form': form})
 
 def register(request):
     if request.method == 'POST':
@@ -53,6 +53,8 @@ def edit(request):
         user_form = UserEditForm(instance=request.user, data=request.POST)
         profile_form = ProfileEditForm(instance=request.user.profile, data=request.POST, files=request.FILES)
         if user_form.is_valid() and profile_form.is_valid():
+            # profile = Profile.objects.get(user=request.user)
+            # profile.first_name = user_form.
             user_form.save()
             profile_form.save()
             messages.success(request, 'Profile updates succesfully')
@@ -62,3 +64,13 @@ def edit(request):
         user_form = UserEditForm(instance=request.user)
         profile_form = ProfileEditForm(instance=request.user.profile)
     return render(request, 'account/edit.html', {'user_form': user_form, 'profile_form': profile_form})
+
+def my_profile_view(request):
+    profile = Profile.objects.get(user=request.user)
+
+    context = {
+        'profile': profile,
+        # 'section': 'my_profile_view'
+    }
+
+    return render(request, 'account/profile.html', context)
