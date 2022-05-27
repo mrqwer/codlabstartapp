@@ -4,7 +4,11 @@ body {
     margin:0;
     padding:0;
     font-family:helvetica, sans-serif;
+    color: #1a202c;
+    text-align: left;
+    background-color: #e2e8f0;
 }
+
 
 p {
     line-height: 1.8;
@@ -36,8 +40,8 @@ ol {
 }
 
 #header {
-    padding:10px 100px;
-    font-size:14px;
+    padding: 25px 100px;
+    font-size: 17px;
     background:#050505;
     color:#fff;
     border-bottom:4px solid #033d1e;
@@ -70,7 +74,7 @@ ol {
 
 #header a {
     color:#f3f7cc;
-}
+margin: 0 15px;}
 #header a:hover {
     color:#fff;
 }
@@ -78,6 +82,7 @@ ol {
 #header .user {
     float:right;
     padding-top:4px;
+    margin: 0 40px 0 40px;
 }
 
 #content {
@@ -274,4 +279,94 @@ img.user-detail {
 .action .date {
     font-style:italic;
     color:#ccc;
+}
+
+/* .form-control:focus {
+    box-shadow: none;
+    border-color: #BA68C8
+}
+
+.profile-button {
+    background: rgb(99, 39, 120);
+    box-shadow: none;
+    border: none
+}
+
+.profile-button:hover {
+    background: #682773
+}
+
+.profile-button:focus {
+    background: #682773;
+    box-shadow: none
+}
+
+.profile-button:active {
+    background: #682773;
+    box-shadow: none
+}
+
+.back:hover {
+    color: #682773;
+    cursor: pointer
+}
+
+.labels {
+    font-size: 11px
+}
+
+.add-experience:hover {
+    background: #BA68C8;
+    color: #fff;
+    cursor: pointer;
+    border: solid 1px #BA68C8
+} */
+
+
+.main-body {
+    padding: 15px;
+}
+.card {
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0 solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+}
+
+.card-body {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1rem;
+}
+
+.gutters-sm {
+    margin-right: -8px;
+    margin-left: -8px;
+}
+
+.gutters-sm>.col, .gutters-sm>[class*=col-] {
+    padding-right: 8px;
+    padding-left: 8px;
+}
+.mb-3, .my-3 {
+    margin-bottom: 1rem!important;
+}
+
+.bg-gray-300 {
+    background-color: #e2e8f0;
+}
+.h-100 {
+    height: 100%!important;
+}
+.shadow-none {
+    box-shadow: none!important;
 }

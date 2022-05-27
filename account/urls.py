@@ -2,6 +2,8 @@ from django.urls import path, include
 from django.contrib.auth import views as auth_views
 from . import views
 
+# app_name = 'account'
+
 urlpatterns = [
     # path('', views.user_login, name='login'),
     # path('login/', auth_views.LoginView.as_view(), name='login'),
@@ -21,4 +23,5 @@ urlpatterns = [
     path('', include('django.contrib.auth.urls')),
     path('register/', views.register, name='register'),
     path('edit/', views.edit, name='edit'),
+    path('profile/', views.my_profile_view, name='my_profile_view'),
 ]
